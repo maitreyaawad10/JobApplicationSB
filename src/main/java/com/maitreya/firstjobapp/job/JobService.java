@@ -3,11 +3,13 @@ package com.maitreya.firstjobapp.job;
 import java.util.List;
 
 public interface JobService {
-    List<Job> findAll();
     void createJob(Job job);
 
+    List<Job> findAll();
+
     Job getJobById(Long id);
-    boolean deleteJobById(Long id);
 
     boolean updateJobById(Long id, Job job);
+
+    boolean deleteJobById(Long id);
 }

@@ -16,6 +16,10 @@ public class Job {
     private String maxSalary;
     private String location;
 
+//    Whenever working with jpa we need to define a default constuctor
+//    Without this, JPA won't be able to instantiate any Entity objects
+    public Job() {}
+
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
         this.title = title;
