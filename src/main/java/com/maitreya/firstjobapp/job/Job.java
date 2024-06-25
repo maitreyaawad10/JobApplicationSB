@@ -1,9 +1,7 @@
 package com.maitreya.firstjobapp.job;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.maitreya.firstjobapp.company.Company;
+import jakarta.persistence.*;
 
 @Entity
 public class Job {
@@ -16,6 +14,10 @@ public class Job {
     private String maxSalary;
     private String location;
 
+//    In order to relate a job to a company, as many jobs are related to one company
+    @ManyToOne
+    private Company company;
+
 //    Whenever working with jpa we need to define a default constuctor
 //    Without this, JPA won't be able to instantiate any Entity objects
     public Job() {}
@@ -27,6 +29,14 @@ public class Job {
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
         this.location = location;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public Long getId() {

@@ -3,7 +3,7 @@ package com.maitreya.firstjobapp.job;
 import java.util.List;
 
 public interface JobService {
-    void createJob(Job job);
+    void addJob(Job job);
 
     List<Job> findAll();
 
