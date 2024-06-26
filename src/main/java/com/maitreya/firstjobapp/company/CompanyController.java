@@ -40,8 +40,8 @@ public class CompanyController {
     // UPDATE COMPANY BY ID
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCompanyById(@PathVariable Long id, @RequestBody Company updatedCompany) {
-        boolean updated = companyService.updateCompanyById(id, updatedCompany);
-        if (updated)
+        boolean isCompanyUpdated = companyService.updateCompanyById(id, updatedCompany);
+        if (isCompanyUpdated)
             return new ResponseEntity<>("Company updated successfully!", HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
@@ -49,8 +49,8 @@ public class CompanyController {
     // DELETE COMPANY BY ID
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCompanyById(@PathVariable Long id) {
-        boolean deleted = companyService.deleteCompanyById(id);
-        if (deleted)
+        boolean isCompanyDeleted = companyService.deleteCompanyById(id);
+        if (isCompanyDeleted)
             return new ResponseEntity<>("Company deleted successfully!", HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

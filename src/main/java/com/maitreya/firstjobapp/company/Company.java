@@ -2,6 +2,7 @@ package com.maitreya.firstjobapp.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.maitreya.firstjobapp.job.Job;
+import com.maitreya.firstjobapp.review.Review;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -21,7 +22,8 @@ public class Company {
     /* mappedBy tells compiler to not create a separate mapping table
      instead it is mapped by an attribute name company in Job table */
 
-//    private List<Review> reviews
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<Review> reviews;
 
     public Company() {}
 
@@ -29,6 +31,14 @@ public class Company {
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public List<Job> getJobs() {
